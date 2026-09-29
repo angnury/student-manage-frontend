@@ -44,7 +44,9 @@ const handleLogin = async () => {
       ElMessage.error(res.message || '登录失败')
     }
   } catch (error) {
-    ElMessage.error('网络错误')
+    // 认证失败时后端返回 HTTP 401，错误信息在 error.response.data.message
+    const data = error.response && error.response.data
+    ElMessage.error((data && data.message) || '网络错误，请稍后重试')
   }
 }
 </script>

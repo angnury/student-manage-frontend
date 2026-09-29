@@ -4,7 +4,7 @@ export function login(username, password) {
     return request({
         url: '/auth/login',
         method: 'post',
-        params: { username, password }   // 因为后端用的是 @RequestParam
+        data: { username, password }   // 后端已改为 @RequestBody LoginDTO
     })
 }
 
