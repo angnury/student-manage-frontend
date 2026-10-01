@@ -1,18 +1,11 @@
-# Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
-
-
----
-
-## 三、Vue3 前端（student-manage-frontend）
-
-```markdown
 # 学生综合信息管理系统 · Web 前端（Vue3 + Element Plus）
 
 > 前后端分离 · 管理后台 · 角色动态菜单
+>
+> 🌐 **在线演示：** http://47.98.192.161
+> （用户名 `admin` / 密码 `123456`）
+> （用户名 `T001` / 密码 `123456`）
+> （用户名 `202401` / 密码 `123456`）
 
 ## 项目简介
 
@@ -31,10 +24,36 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 ## 功能页面
 
 - 登录页（JWT 登录）
-- 布局页（侧边菜单根据角色动态显示）
+- 布局页（侧边菜单按角色动态显示）
 - 学生管理（分页、搜索、新增、编辑、删除）
 - 成绩管理（查询、录入、修改）
-- 统计报表（成绩分布柱状图、班级平均分表格）
+- 统计报表（成绩分布、班级平均分）
+
+## 项目截图
+
+### 登录页
+![登录页](docs/screenshots/login.png)
+
+### 学生管理
+![学生管理](docs/screenshots/student-list.png)
+
+### 成绩管理
+![成绩管理](docs/screenshots/score-manage.png)
+
+### 统计报表
+![统计报表](docs/screenshots/statistics.png)
+
+## 项目结构
+
+```
+src/
+├── api/          # 接口封装
+├── components/   # 公共组件（Layout）
+├── router/       # 路由配置
+├── store/        # Pinia 状态管理
+├── utils/        # Axios 封装
+└── views/        # 页面组件
+```
 
 ## 如何运行
 
@@ -42,3 +61,30 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 2. 安装依赖：
    ```bash
    npm install
+   ```
+3. 启动开发服务器：
+   ```bash
+   npm run dev
+   ```
+4. 浏览器访问 `http://localhost:5173`
+
+> 注意：需要先启动后端服务（默认 `http://localhost:8080`），Vite 已配置代理 `/api` → `http://localhost:8080`。
+
+## 默认账号
+
+| 角色 | 用户名 | 密码 |
+|---|---|---|
+| 管理员 | admin | 123456 |
+| 教师 | T001 | 123456 |
+| 学生 | 202401 | 123456 |
+
+## 部署
+
+- 前端打包：`npm run build`，产出 `dist/` 目录
+- 部署于阿里云 ECS，Nginx 提供静态文件服务并反向代理 `/api`
+- 在线地址：http://47.98.192.161
+
+## 作者
+
+- 李林罡
+- GitHub：[angnury](https://github.com/angnury)
